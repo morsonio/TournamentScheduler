@@ -2,7 +2,7 @@
 
 namespace Scheduler.Domain.Repositories
 {
-    internal interface ICompetitionRepository
+    public interface ICompetitionRepository
     {
         Task<IEnumerable<Competition>> GetAllAsync();
         Task<Competition> GetByIdWithTeamsAsync(int competitionId);
