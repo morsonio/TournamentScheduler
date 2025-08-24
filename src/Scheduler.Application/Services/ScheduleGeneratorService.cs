@@ -2,11 +2,6 @@
 using Scheduler.Application.Interfaces;
 using Scheduler.Domain.Repositories;
 using Scheduler.Domain.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Scheduler.Application.Services
 {
@@ -34,7 +29,7 @@ namespace Scheduler.Application.Services
             var newSchedule = _scheduleGenerator.Generate(competition);
 
             // 3. Zapisanie wyniku w bazie danych w ramach jednej transakcji
-            //await _unitOfWork.Schedules.AddAsync(newSchedule);
+            await _unitOfWork.Schedules.AddAsync(newSchedule);
             await _unitOfWork.CompleteAsync();
 
             // 4. Zmapowanie wyniku na DTO i zwrócenie go do UI
